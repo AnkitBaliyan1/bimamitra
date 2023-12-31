@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from dotenv import load_dotenv
 from .forms import InputForm
 from openai._client import OpenAI
@@ -71,13 +71,28 @@ def bimabot(request):
                 "You": user_input,
                 "BimaBot": response_text
             }
-
             chat_history.insert(0,conversation_dict)
             
-
     else:
         form=InputForm()
 
     return render(request, "application_insure/bimabot.html", {'form':form, 'response': response_text, 'chat_history':chat_history})
 
 
+def about(request):
+    return render(request, "application_insure/about.html")
+
+
+
+from .forms import ContactUsForm
+def contactus(request):
+    if request.method == 'POST':
+        form = ContactUsForm(request.POST)
+        if form.is_valid():
+            form.save()  # This will save the form data to the ContactUs model
+            # Redirect to a success page or return a response
+            return render(request, "application_insure/contactus.html")  # Replace 'success_page' with the URL name of your success page
+    else:
+        form = ContactUsForm()
+
+    return render(request, 'application_insure/contactus.html', {'form': form})

@@ -4,8 +4,8 @@
 <head>
     <title> BimaMitra | </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../static/project_image/css/style.css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="../../static/project_image/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     
     {% block head %}{% endblock head %} <!-- Head Block -->
 
@@ -29,7 +29,7 @@
                 <a class="nav-link" href="/dashboard">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="{% url "bimamitra:about" %}">About</a>
             </li>            
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,7 +41,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
+                <a class="nav-link" href="{% url "bimamitra:contactus" %}">Contact Us</a>
             </li>
              
         </ul>
