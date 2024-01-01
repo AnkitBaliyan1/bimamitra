@@ -57,9 +57,9 @@
                     {% endfor %}
                     -->
 
-
+                    {% if chat_history %}
                     <div class="main-container" style="width: auto; margin: 5px; padding:15px">
-                        <h2>Chat History</h2>
+                        <h4></h4>
                         {% for message in chat_history %}
                             {% if 'BimaBot' in message %}
                                 <div class="bot-container">
@@ -80,6 +80,7 @@
                             {% endif %}
                         {% endfor %}
                     </div>
+                    {% endif %}
                     
                     
                 

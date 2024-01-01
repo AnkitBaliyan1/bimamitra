@@ -72,6 +72,7 @@ def bimabot(request):
                 "BimaBot": response_text
             }
             chat_history.insert(0,conversation_dict)
+            form=InputForm()
             
     else:
         form=InputForm()
@@ -83,6 +84,12 @@ def about(request):
     return render(request, "application_insure/about.html")
 
 
+def contactus(request):
+    return render(request, 'application_insure/contactus.html')
+
+
+'''
+# since admin contact us is not working, hence removing this one. 
 
 from .forms import ContactUsForm
 def contactus(request):
@@ -96,3 +103,5 @@ def contactus(request):
         form = ContactUsForm()
 
     return render(request, 'application_insure/contactus.html', {'form': form})
+
+'''
